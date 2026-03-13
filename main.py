@@ -235,7 +235,6 @@ async def on_message(message):
             description=random.choice(greetings),
             color=Colors.PRIMARY
         )
-        embed.set_thumbnail(url=message.author.avatar.url)
         await message.reply(embed=embed)
         return
     
@@ -539,9 +538,6 @@ async def rank(ctx, user: discord.User = None):
     filled = int(bar_length * progress / progress_max)
     bar = "█" * filled + "░" * (bar_length - filled)
     embed.add_field(name="Progress Bar", value=f"`{bar}`", inline=False)
-    
-    embed.set_thumbnail(url=user.avatar.url)
-    
     await ctx.send(embed=embed)
 
 @bot.command(name='leaderboard_rank')
