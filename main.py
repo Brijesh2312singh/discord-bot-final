@@ -217,7 +217,6 @@ async def on_message(message):
                 description=f"{message.author.mention} reached **Level {new_level}**!",
                 color=Colors.GOLD
             )
-            embed.set_thumbnail(url=message.author.avatar.url)
             try:
                 await message.channel.send(embed=embed)
             except:
@@ -284,7 +283,6 @@ async def on_member_join(member):
                     color=Colors.PRIMARY
                 )
                 embed.add_field(name="Member Count", value=f"Server mein ab {member.guild.member_count} members hain!", inline=False)
-                embed.set_thumbnail(url=member.avatar.url)
                 embed.set_footer(text=f"Joined at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
                 await channel.send(embed=embed)
         except Exception as e:
@@ -639,7 +637,6 @@ async def ask_groq(ctx, *, question):
                     description=answer,
                     color=Colors.PRIMARY
                 )
-                embed.set_thumbnail(url=bot.user.avatar.url)
                 await ctx.send(embed=embed)
             
             print(f"[RESPONSE] Groq AI reply sent")
@@ -853,7 +850,6 @@ async def balance(ctx):
         color=Colors.GOLD
     )
     embed.add_field(name="Coins", value=f"💰 {coins}", inline=False)
-    embed.set_thumbnail(url=ctx.author.avatar.url)
     await ctx.send(embed=embed)
 
 @bot.command(name='daily')
@@ -910,7 +906,6 @@ async def profile(ctx, user: discord.User = None):
     embed.add_field(name="Level", value=f"🎖️ {level}", inline=True)
     embed.add_field(name="XP", value=f"⭐ {xp}", inline=True)
     embed.add_field(name="Coins", value=f"💰 {coins}", inline=False)
-    embed.set_thumbnail(url=user.avatar.url)
     await ctx.send(embed=embed)
 
 @bot.command(name='leaderboard')
